@@ -70,3 +70,15 @@ coll.find({gender: 'f', $or: [{nationality: 'american'}, {nationality: 'irish'}]
 // nationality of `american` or `irish` and sort them in an
 // ascending according to the nationality
 coll.find({gender: 'f', $or: [{nationality: 'american'}, {nationality: 'irish'}]}).sort({nationality: 1});
+
+// Update the first matching record
+coll.update({nationality: 'irish'}, {$set: {hair_colour: 'blue'}})
+
+// Update all matching records
+coll.update({nationality: 'irish'}, {$set: {hair_colour: 'purple'}},{multi:true})
+
+// Delete a record that has a `first` of `kate` and a `last` of `bush`
+coll.remove({first: 'kate', last: 'bush'})
+
+// to clear screen
+cls
